@@ -19,6 +19,11 @@ export default function BlogId({ blog }) {
             <li className={styles.menu_item}><a className={styles.a} href="https://mf7cli.vercel.app">Back to mf7cli.vercel.app</a></li>
           </ul>
         </header>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <main className={styles.main}>
           <h1 className={styles.title}>{blog.title}</h1>
           <p className={styles.publishedAt}>{blog.publishedAt}</p>
