@@ -68,7 +68,17 @@
   text-decoration: none;
 }
 
+a {
+  color: #b1b1b1;
+  text-decoration: none;
+}
+
 .a:active {
+  color: #424242;
+  text-decoration: none;
+}
+
+a:active {
   color: #424242;
   text-decoration: none;
 }
