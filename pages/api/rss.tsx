@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   var itemList = ""
-  data.contents.map(
+  data.map(
     content =>
       (itemList +=
         "<item><title>" +
@@ -34,7 +34,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
      <channel>
         <title>mf7cli-blog</title>
         <link>https://mf7cli-blog.vercel.app/</link>
-        <description>mf7cli Blogs</description>
+        <description>mf7cli Blog</description>
         <language>ja</language>
         <docs>ttps://mf7cli-blog.vercel.app/rss</docs>
         <generator>xxxxx 2.0</generator>
