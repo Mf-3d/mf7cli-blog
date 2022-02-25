@@ -3,7 +3,7 @@ import { client } from "../../libs/client";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const data = await fetch(`https://mf7cli-blog.microcms.io/api/v1/post`, {
-    headers: { "X-MICROCMS-API-KEY": process.env.API_KEY || "" },
+    headers: { "X-API-KEY": process.env.API_KEY },
   })
     .then(res => res.json())
     .catch(error => null)
