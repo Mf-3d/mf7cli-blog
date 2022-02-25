@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { client } from "../../libs/client";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const data = await fetch(`https://mf7cli-blog.microcms.io/api/v1/post`, {
+  const data = await fetch(`https://mf7cli-blog.microcms.io/api/v1/blog`, {
     headers: { "X-API-KEY": process.env.API_KEY },
   })
     .then(res => res.json())
@@ -13,7 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   var itemList = ""
-  data.map(
+  data.contents.map(
     content =>
       (itemList +=
         "<item><title>" +
