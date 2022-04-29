@@ -19,18 +19,19 @@ export default function BlogId({ blog }) {
       </head>
       <body className={styles.body}>
         <header className={styles.header}>
-          <h1 className={styles.header_title}>　mf7cli-Blog</h1>
-          <ul>
-            <li className={styles.menu_item}><a className={styles.a} href="../">Home</a></li>
-            <li className={styles.menu_item}><a className={styles.a} href="https://mf7cli.vercel.app">Back to mf7cli.vercel.app</a></li>
-          </ul>
+          <span className={styles.header_title}>
+              <a href="/">mf7cli-Blog</a>
+          </span>
+          <div className={styles.header_links}>
+              <a href="index.html">??</a>
+          </div>
         </header>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <main className={styles.main}>
+        <div className={styles.blogColumn}>
           <h1 className={styles.title}>{blog.title}</h1>
           <p className={styles.publishedAt}>{blog.publishedAt}</p>
           <div
@@ -39,7 +40,7 @@ export default function BlogId({ blog }) {
             }}
             className={styles.post}
           />
-        </main>
+        </div>
       </body>
     </html>
 

@@ -1,9 +1,9 @@
 a {
-  color: #b1b1b1;
+  color: #009ed2;
+  transition: all 0.5s;
   text-decoration: none;
 }
 
-a:active {
-  color: #424242;
-  text-decoration: none;
+a:hover {
+  color: #00bfff;
 }

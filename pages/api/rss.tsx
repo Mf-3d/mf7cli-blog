@@ -1,18 +1,25 @@
 import { NextApiRequest, NextApiResponse } from "next"
+import { createClient } from 'microcms-js-sdk';
+
+const data = createClient({
+  serviceDomain: 'mf7cli-blog',
+  apiKey: process.env.API_KEY,
+});
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const data = await fetch(`https://mf7cli-blog.microcms.io/api/v1/blog`, {
-    headers: { "X-API-KEY": process.env.API_KEY },
-  })
-    .then(res => res.json())
-    .catch(error => null)
+  // const data = await fetch(`https://mf7cli-blog.microcms.io/api/v1/blog`, {
+  //   headers: { "X-API-KEY": process.env.API_KEY },
+  // })
+  //   .then(res => res.json())
+  //   .catch(error => null)
 
-  if (!data) {
-    return res.status(401).json({ message: "Invalid slug" })
-  }
+  // if (!data) {
+  //   return res.status(401).json({ message: "Invalid slug" })
+  // }
 
   var itemList = ""
-  data.contents.map(
+  var content = await data.get({endpoint: 'blog'});
+  content.contents.map(
     content =>
       (itemList +=
         "<item><title>" +
@@ -35,8 +42,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         <link>https://mf7cli-blog.vercel.app/</link>
         <description>mf7cli Blog</description>
         <language>ja</language>
-        <docs>ttps://mf7cli-blog.vercel.app/rss</docs>
-        <generator>xxxxx 2.0</generator>
+        <docs>https://mf7cli-blog.vercel.app/rss</docs>
+        <generator>mf7cli</generator>
         ` +
     itemList +
     `

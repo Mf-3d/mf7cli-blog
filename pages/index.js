@@ -19,19 +19,29 @@ export default function Home({ blog }) {
       </head>
       <body className={styles.body}>
         <header className={styles.header}>
+            <span className={styles.header_title}>
+                <a href="/">mf7cli-Blog</a>
+            </span>
+            <div className={styles.header_links}>
+                <a href="index.html">??</a>
+            </div>
+        </header>
+        {/* <header className={styles.header}>
           <h1 className={styles.header_title}>　mf7cli-Blog</h1>
           <ul>
             <li className={styles.menu_item}><a className={styles.a} href="../">Home</a></li>
             <li className={styles.menu_item}><a className={styles.a} href="https://mf7cli.vercel.app">Back to mf7cli.vercel.app</a></li>
           </ul>
-        </header>
+        </header> */}
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
-        <br></br>
-        <div>
-        <h2 className={styles.title}>　記事一覧</h2>
+        <div className={styles.blogColumn}>
+        <div className={styles.page_title}>
+                    <h1>mf7cli-Blog</h1>
+                    &nbsp;<a href="https://en.wikipedia.org/wiki/Loona" target="_blank" rel="nofollow">ㅇㄷㅇㅅㄴ.</a>
+        </div>
+          <h2 className={styles.title}>　記事一覧</h2>
           <ul>
             {blog.map((blog) => (
               <li key={blog.id} className={styles.blog_item}>
