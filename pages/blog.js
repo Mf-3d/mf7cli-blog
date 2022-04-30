@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { client } from "../libs/client";
 import styles from '../styles/Home.module.scss';
-import Script from 'next/script';
+import styles2 from '../styles/Blog.module.scss';
 
 export default function Home({ blog }) {
   return (
@@ -17,14 +17,6 @@ export default function Home({ blog }) {
           <meta property="og:description" content="made_in_apple_のブログ"/>
           <meta property="og:site_name" content="mf7cli-blog"/>
           <meta property="og:image" content="https://blog.mf7cli.ml/image/background/loona-oec.jpeg"/>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                    let date = new Date();
-                    window.onload = () => {};
-                  `,
-            }}
-          ></script>
       </head>
       <body className={styles.body}>
         <header className={styles.header}>
@@ -46,34 +38,19 @@ export default function Home({ blog }) {
         <br></br>
         <br></br>
         <div className={styles.blogColumn}>
-          <div className={styles.page_title}>
-                      <h1>mf7cli-Blog</h1>
-                      &nbsp;<a href="https://en.wikipedia.org/wiki/Loona" target="_blank" rel="nofollow">ㅇㄷㅇㅅㄴ.</a>
-          </div>
-          <h2 className={styles.title}>新着記事</h2>
+        <div className={styles.page_title}>
+                    <h1>mf7cli-Blog</h1>
+                    &nbsp;<a href="https://en.wikipedia.org/wiki/Loona" target="_blank" rel="nofollow">ㅇㄷㅇㅅㄴ.</a>
+        </div>
+          <h2 className={styles.title}>記事一覧</h2>
           <div>
-            {blog.map((blog, index) => {
-              if(index < 4){
-                return (
-                  <div key={blog.id} className={styles.reflection}>
-                    <Link href={`/blog/${blog.id}`}>
-                      <a className={styles.blog_title}>{blog.title}</a>
-                    </Link>
-                  </div>
-                );
-              }
-            })}
-          </div>
-          <Link href="/blog">もっと見る</Link>
-          <div className={styles.page_title}>
-            <h2>ニュース</h2>
-            &nbsp;by <Link href={"https://rss.mf7cli.tk"}>rss.mf7cli.tk</Link>
-          </div>
-          <div id="newsColumn">
-            <div className={styles.reflection} id="in_maintenance">
-                【メンテナンス中のサービス】
-                <br></br>
+            {blog.map((blog, index) => (
+            <div key={blog.id} className={styles2.reflection2}>
+              <Link href={`/blog/${blog.id}`}>
+                <a className={styles.blog_title}>{blog.title}</a>
+              </Link>
             </div>
+            ))}
           </div>
         </div>
       </body>
