@@ -67,12 +67,13 @@ export default function Home({ blog }) {
           <Link href="/blog">もっと見る</Link>
           <div className={styles.page_title}>
             <h2>ニュース</h2>
-            &nbsp;by <Link href={"https://rss.mf7cli.tk"}>rss.mf7cli.tk</Link>
+            &nbsp;by <Link href={"https://status.mf7cli.tk"}>status.mf7cli.tk</Link>
           </div>
           <div id="newsColumn">
             <div className={styles.reflection} id="in_maintenance">
                 【メンテナンス中のサービス】
                 <br></br>
+                現在はありません。
             </div>
           </div>
         </div>
