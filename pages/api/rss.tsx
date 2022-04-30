@@ -42,7 +42,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         <link>https://mf7cli-blog.vercel.app/</link>
         <description>mf7cli Blog</description>
         <language>ja</language>
-        <docs>https://mf7cli-blog.vercel.app/rss</docs>
+        <docs>https://mf7cli-blog.vercel.app/api/rss</docs>
         <generator>mf7cli</generator>
         ` +
     itemList +
