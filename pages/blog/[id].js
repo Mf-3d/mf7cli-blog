@@ -15,7 +15,7 @@ export default function BlogId({ blog }) {
           <meta property="og:title" content= {blog.title}/>
           <meta property="og:description" content="made_in_apple_のブログ"/>
           <meta property="og:site_name" content="mf7cli-blog"/>
-          <meta property="og:image" content="https://mf7cli-download.vercel.app/files/picture/2022/b_building.png"/>
+          <meta property="og:image" content="https://blog.mf7cli.ml/image/background/loona-oec.jpeg"/>
       </head>
       <body className={styles.body}>
         <header className={styles.header}>
