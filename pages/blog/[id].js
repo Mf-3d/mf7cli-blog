@@ -1,6 +1,7 @@
 // pages/blog/[id].js
 import { client } from "../../libs/client";
 import styles from '../../styles/Home.module.scss';
+import Link from "next/link";
 
 export default function BlogId({ blog }) {
   return (
@@ -26,20 +27,27 @@ export default function BlogId({ blog }) {
               <a href="index.html">??</a>
           </div>
         </header>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className={styles.blogColumn}>
-          <h1 className={styles.title}>{blog.title}</h1>
-          <p className={styles.publishedAt}>{blog.publishedAt}</p>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${blog.body}`,
-            }}
-            className={styles.post}
-          />
+        <div className={styles.main}>
+          <div className={styles.blogColumn}>
+            <h1 className={styles.title}>{blog.title}</h1>
+            <p className={styles.publishedAt}>{blog.publishedAt}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `${blog.body}`,
+              }}
+              className={styles.post}
+            />
+          </div>
+          <div className={styles.sidemenuColumn}>
+            <div id="newsColumn">
+              <h2>Status</h2>
+              <h3>【メンテナンス中のサービス】</h3>
+              <div className={styles.reflection2} id="in_maintenance">
+                  現在はありません。
+              </div>
+              <small>For more information: <Link href={"https://status.mf7cli.tk"}>status.mf7cli.tk</Link></small>
+            </div>
+          </div>
         </div>
       </body>
     </html>

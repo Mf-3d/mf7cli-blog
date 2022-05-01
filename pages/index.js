@@ -21,7 +21,25 @@ export default function Home({ blog }) {
             dangerouslySetInnerHTML={{
               __html: `
                     let date = new Date();
-                    window.onload = () => {};
+                    window.onload = () => {
+                      fetch('https://status.mf7cli.tk/maintenance/')
+                      .then((res) => {
+                          return res.json();
+                      })
+                      .then((json) => {
+                          console.log(json.maintenance);
+                          let in_maintenance_service;
+                          if(json.maintenance[0] === true){
+                            in_maintenance_service = 'Clii for LINE<br>';
+                          }
+                          if(in_maintenance_service !== undefined){
+                            document.getElementById('in_maintenance').innerHTML = in_maintenance_service;
+                          }
+                      })
+                      .catch((reason) => {
+                          console.log(reason);
+                      });
+                    };
                   `,
             }}
           ></script>
@@ -35,45 +53,40 @@ export default function Home({ blog }) {
                 <a href="index.html">??</a>
             </div>
         </header>
-        {/* <header className={styles.header}>
-          <h1 className={styles.header_title}>　mf7cli-Blog</h1>
-          <ul>
-            <li className={styles.menu_item}><a className={styles.a} href="../">Home</a></li>
-            <li className={styles.menu_item}><a className={styles.a} href="https://mf7cli.vercel.app">Back to mf7cli.vercel.app</a></li>
-          </ul>
-        </header> */}
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className={styles.blogColumn}>
-          <div className={styles.page_title}>
-                      <h1>mf7cli-Blog</h1>
-                      &nbsp;<a href="https://en.wikipedia.org/wiki/Loona" target="_blank" rel="nofollow">ㅇㄷㅇㅅㄴ.</a>
+        <div className={styles.main}>
+          <div className={styles.blogColumn}>
+            <div className={styles.page_title}>
+                        <h1>mf7cli-Blog</h1>
+                        &nbsp;<a href="https://en.wikipedia.org/wiki/Loona" target="_blank" rel="nofollow">ㅇㄷㅇㅅㄴ.</a>
+            </div>
+            <h2 className={styles.title}>新着記事</h2>
+            <div>
+              {blog.map((blog, index) => {
+                if(index < 4){
+                  return (
+                    <div key={blog.id} className={styles.reflection}>
+                      <Link href={`/blog/${blog.id}`}>
+                        <a className={styles.blog_title}>{blog.title}</a>
+                      </Link>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+            <Link href="/blog">もっと見る</Link>
+            {/* <div className={styles.page_title}>
+              <h2>ニュース</h2>
+              &nbsp;by <Link href={"https://status.mf7cli.tk"}>status.mf7cli.tk</Link>
+            </div> */}
           </div>
-          <h2 className={styles.title}>新着記事</h2>
-          <div>
-            {blog.map((blog, index) => {
-              if(index < 4){
-                return (
-                  <div key={blog.id} className={styles.reflection}>
-                    <Link href={`/blog/${blog.id}`}>
-                      <a className={styles.blog_title}>{blog.title}</a>
-                    </Link>
-                  </div>
-                );
-              }
-            })}
-          </div>
-          <Link href="/blog">もっと見る</Link>
-          <div className={styles.page_title}>
-            <h2>ニュース</h2>
-            &nbsp;by <Link href={"https://status.mf7cli.tk"}>status.mf7cli.tk</Link>
-          </div>
-          <div id="newsColumn">
-            <div className={styles.reflection} id="in_maintenance">
-                【メンテナンス中のサービス】
-                <br></br>
-                現在はありません。
+          <div className={styles.sidemenuColumn}>
+            <div id="newsColumn">
+              <h2>Status</h2>
+              <h3>【メンテナンス中のサービス】</h3>
+              <div className={styles.reflection2} id="in_maintenance">
+                  現在はありません。
+              </div>
+              <small>For more information: <Link href={"https://status.mf7cli.tk"}>status.mf7cli.tk</Link></small>
             </div>
           </div>
         </div>
