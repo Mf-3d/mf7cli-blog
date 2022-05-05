@@ -24,7 +24,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       (itemList +=
         "<item><title>" +
         content.title +
-        "</title><link>https://mf7cli-blog.vercel.app/" +
+        "</title><link>https://mf7cli-blog.vercel.app/blog/" +
         content.id +
         "</link><description>" +
         content.title +
