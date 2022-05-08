@@ -17,6 +17,32 @@ export default function BlogId({ blog }) {
           <meta property="og:description" content="made_in_apple_のブログ"/>
           <meta property="og:site_name" content="mf7cli-blog"/>
           <meta property="og:image" content="https://blog.mf7cli.ml/image/background/loona-oec.jpeg"/>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                    let date = new Date();
+                    window.onload = () => {
+                      fetch('https://status.mf7cli.tk/maintenance/')
+                      .then((res) => {
+                          return res.json();
+                      })
+                      .then((json) => {
+                          console.log(json.maintenance);
+                          let in_maintenance_service;
+                          if(json.maintenance[0] === true){
+                            in_maintenance_service = 'Clii for LINE<br>';
+                          }
+                          if(in_maintenance_service !== undefined){
+                            document.getElementById('in_maintenance').innerHTML = in_maintenance_service;
+                          }
+                      })
+                      .catch((reason) => {
+                          console.log(reason);
+                      });
+                    };
+                  `,
+            }}
+          ></script>
       </head>
       <body className={styles.body}>
         <header className={styles.header}>
